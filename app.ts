@@ -1,13 +1,16 @@
 import express from 'express';
 import dotenv from 'dotenv' ;
 import { connect } from './DB/db';
-
+import router from './Routes/routes';
 dotenv.config()
 
 connect();
 
 const app  = express();
 
+//If there any meeting in URL it redirect to router route
+
+app.use('/meeting',router);
 
 app.get('/',(req,res)=>{
 
