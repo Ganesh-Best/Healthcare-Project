@@ -8,12 +8,15 @@ export interface userI extends Document {
 }
 
 export interface sessionI extends Document {
- docterId:mongoose.Types.ObjectId;
+ doctorId:mongoose.Types.ObjectId;
  patientId:mongoose.Types.ObjectId;
  meetingId:string;
  meetingLink:string;
  scheduledAt:Date;
  createdAt:Date;
+ password:string;
+ topic:string;
+ duration:string;
 }
 
 export interface payloadI {

@@ -10,7 +10,9 @@ const app  = express();
 
 //If there any meeting in URL it redirect to router route
 
-app.use('/meeting',router);
+app.use(express.json())
+
+app.use('/patient/meeting',router);
 
 app.get('/',(req,res)=>{
 

@@ -1,6 +1,5 @@
-import jwt from 'jsonwebtoken';
-import { payloadI } from '../structure';
 import { meetingI ,generateZoomJWTI} from '../structure';
+
 import Axios from 'axios'
 
 
@@ -30,7 +29,9 @@ export const generateZoomMeeting =  async(topic:string,scheduledAt:string,durati
     //    const URL = `https://api.zoom.us/v2/users/${process.env.Zoom_USER}/meetings`
        
       try {
+
          const token = await generateZoomJWT();
+
          const URL = `https://api.zoom.us/v2/users/me/meetings`
       
           const meetingDetails : meetingI = {
@@ -61,10 +62,12 @@ export const generateZoomMeeting =  async(topic:string,scheduledAt:string,durati
 
            
       
-             console.log('Meeting created successfully:' , success)
-             return success ;
+            //  console.log('Meeting created successfully:' , success)
+             return success.data ;
       } catch (e) {
          console.log('unable to generate meeting: ',e)
       }
     }
+
+
     
